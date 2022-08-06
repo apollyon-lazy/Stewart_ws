@@ -1,6 +1,7 @@
 %% calculate the arm parameter 
 function [Arm,Arm_length,Arm_angle_B,Arm_angle_P] = IK_SGP(trans,orient,attach_P,attach_B,vec_dir)
-    
+    % x y z分别对应俯仰 滚转 偏航
+    % theta phi psi 分别对应俯仰 滚转 偏航
     R_BP=Rotz(orient(3))*Roty(orient(2))*Rotx(orient(1));
     T_BP=trans;
     norms=@(x)sqrt(x(1)^2+x(2)^2+x(3)^2);

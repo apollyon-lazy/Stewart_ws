@@ -1,4 +1,4 @@
-function [point] = BSlayer(Init,Constr,attach_P,attach_B,vec_dir)
+function [point] = pointConstOri(Init,Constr,attach_P,attach_B,vec_dir)
     
     x_min = Init.x(1);
     x_max = Init.x(2);

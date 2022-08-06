@@ -2,6 +2,7 @@ clear;
 clc;
 
 tic;
+
 %% Initial geometry parameters
 Geometry.alpha_P=pi*45/180;         %[rad] the degree between the points of the platform
 Geometry.alpha_B=pi*35/180;         %[rad] the degree between the points of the base
@@ -20,11 +21,11 @@ Init.psi = [-pi/6,pi/6];
 Init.theta_step = pi/81;
 Init.phi_step = pi/81;
 Init.psi_step = pi/81;
-% Init.orient = [0,0,0]';
-Init.trans = [0,0,60]';
+
+Init.trans = [0,0,60]';             %[rad] constant-orientation 
+% Init.orient = [0,0,0]';           %[rad] constant-position 
 
 %% Main process 
-
 % Calculate geometry parameter
 [attach_P,attach_B,vec_dir] = Stewartparam(Geometry);
 % Calculate Constant-position workspace
@@ -33,10 +34,10 @@ point = pointConstPos(Init,Geometry,attach_P,attach_B,vec_dir);
 toc;
 T = toc;
 fprintf('Calculation finished!\n');
-%% Post-processing 
 
+%% Post-processing 
 pointd = rad2deg(point);
-scatter3(pointd(1,:),pointd(2,:),pointd(3,:),'filled'); 
+scatter3(pointd(1,:),pointd(2,:),pointd(3,:),'.'); 
 grid on;
 view(30,30);
 xlabel('theta');ylabel('phi');zlabel('psi');

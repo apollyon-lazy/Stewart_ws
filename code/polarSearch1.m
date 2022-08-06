@@ -1,6 +1,8 @@
 clear;
 clc;
 
+tic;
+
 %% Initial geometry parameters
 Geometry.alpha_P=pi*45/180;         %[rad] the degree between the points of the platform
 Geometry.alpha_B=pi*35/180;         %[rad] the degree between the points of the base
@@ -13,32 +15,33 @@ Geometry.angle_P = [0,pi/3];        %[rad] Max angle of the platform joint
 Geometry.angle_B = [0,pi/6];        %[rad] Max angle of the base joint
 
 %% Initial process parameter
-Init.phi = [-pi/6,pi/6];
-Init.theta = [-pi/6,pi/6];
-Init.psi = [-pi/6,pi/6];
-Init.theta_step = pi/81;
-Init.phi_step = pi/81;
-Init.psi_step = pi/81;
-% Init.orient = [0,0,0]';
-Init.trans = [0,0,60]';
+Init.orient = [0,0,0]';             %[rad] constant-orientation     
+% Init.trans = [0,0,60]';           %[rad] constant-position 
+
+Init.h = [40,150];                  %[mm] Search height range
+Init.rho = [0,100];                 %[mm] Search polar radius range
+
+Init.alpha_step = pi/64;            %[rad] Search polar angle step
+Init.h_step = 1;                    %[mm] Search height step
+Init.rho_step = Init.rho(2)/10;     %[rad] Search polar radius step
+Init.epsilon = Init.rho(2)/1000;    %[mm] Accuracy threshold
 
 %% Main process 
-tic;
-
 % Calculate geometry parameter
 [attach_P,attach_B,vec_dir] = Stewartparam(Geometry);
 % Calculate Constant-position workspace
-point = pointConstPos(Init,Geometry,attach_P,attach_B,vec_dir);
+[point,cnt_st] = polarConstOri(Init,Geometry,attach_P,attach_B,vec_dir);
 
-toc; T = toc;
+toc;
+T = toc;
 fprintf('Calculation finished!\n');
-%% Post-processing 
 
-pointd = rad2deg(point);
-scatter3(pointd(1,:),pointd(2,:),pointd(3,:),'filled'); 
+%% Post-processing 
+[V] = drawPolar(Init,point,cnt_st);
 grid on;
 view(30,30);
-xlabel('theta');ylabel('phi');zlabel('psi');
-title(['T = ',num2str(T),'s'],'Color','blue');
-
-savefig('.\fig\draw.fig');
+xlabel('x');ylabel('y');zlabel('z');
+str1=['Volumn = ',num2str(V*1e-6)];
+str2=['  T =',num2str(T),'s'];
+title([str1,str2],'Color','blue');
+% savefig('.\fig\draw.fig');

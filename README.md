@@ -5,18 +5,19 @@
 !git pull （将远程代码pull下来，看看是否有冲突）    
 !git push （若没有冲突直接将本地分支的代码push到远程分支上）           
 !git remote set-url origin URL   (更换远程仓库地址，URL为新地址)
-# Folder explaination (文件夹解释)
+# Folder explaination 
 - base 框架代码文件夹
 - code 代码文件夹
 - fig 配图文件夹
 - intlab 区间算法文件夹
 - ref 参考文献文件夹 
-# Version Plan (版本更新计划)
+# Version Plan 
 - 版本v_1.0
     - [ ] 计算工作空间切面函数
-        - [x] 定姿态工作空间
-        - [x] 切面处理
-        - [ ] 任意切面函数
+        - [x] 点离散和极坐标定姿态工作空间
+        - [ ] 极坐标两两自由度切面处理
+            - [x] 位移自由度之间切面、姿态自由度切面之间
+            - [ ] 任意两自由度切面
     - [ ] 近似估计内接椭圆函数
     - [ ] 计算权重因子函数
     - [ ] 编写帮助文档，基本统一为驼峰命名法

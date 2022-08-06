@@ -1,4 +1,4 @@
-function [point,cnt_st] = polarPlanes(Init,Constr,attach_P,attach_B,vec_dir)
+function [point,cnt_st] = plane_xy(Init,Constr,attach_P,attach_B,vec_dir)
 
     orient = Init.orient;
     trans = Init.trans;

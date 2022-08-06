@@ -1,4 +1,4 @@
-function [V] = drawPlanes(Init,point,cnt_st)
+function [temp] = drawPlane(Init,point,~)
 
     alpha_step = Init.alpha_step;
     alpha = alpha_step:alpha_step:2*pi;
@@ -15,7 +15,5 @@ function [V] = drawPlanes(Init,point,cnt_st)
     end
     temp(:,1)=[];
 
-    scatter(temp(1,:),temp(2,:),'filled'); 
-    
     % fprintf('Volumn = %f m3\n',V*1e-6);
 end

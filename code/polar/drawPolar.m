@@ -6,18 +6,19 @@ function [V] = drawPolar(Init,point,cnt_st)
 
     z = h_min:h_step:h_max;
     theta = alpha_step:alpha_step:2*pi;
-
-    temp=zeros(3,1);
+    
+    n = 1;
+    temp=zeros(3,sum(sum(sum(point~=0))));
     for k = 1:size(point,3)
         for j = 1:size(point,2)
             for i = 1:size(point,1)
                 if point(i,j,k)>0
-                    temp(:,end+1) = [point(i,j,k)*cos(theta(j)),point(i,j,k)*sin(theta(j)),z(k)]';
+                    temp(:,n) = [point(i,j,k)*cos(theta(j)),point(i,j,k)*sin(theta(j)),z(k)]';
+                    n = n + 1;
                 end
             end
         end
     end
-    temp(:,1)=[];
     scatter3(temp(1,:),temp(2,:),temp(3,:),'.'); 
     
     V = 0;

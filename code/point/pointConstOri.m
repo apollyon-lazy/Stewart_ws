@@ -1,4 +1,4 @@
-function [point] = pointConstOri(Init,Constr,attach_P,attach_B,vec_dir)
+function [point] = pointConstOri(Init,Geom)
     
     x_min = Init.x(1);
     x_max = Init.x(2);
@@ -6,25 +6,33 @@ function [point] = pointConstOri(Init,Constr,attach_P,attach_B,vec_dir)
     y_max = Init.y(2);
     z_min = Init.z(1);
     z_max = Init.z(2);
+
     x_step = Init.x_step;
     y_step = Init.y_step;
     z_step = Init.z_step;
+
     orient = Init.orient;
+    % trans = Init.trans;
 
-    length_max = Constr.length(2);
-    length_min = Constr.length(1);
-    angle_P = Constr.angle_P(2);
-    angle_B = Constr.angle_B(2);
-
+    length_max = Geom.length(2);
+    length_min = Geom.length(1);
+    angle_P = Geom.angle_P(2);
+    angle_B = Geom.angle_B(2);
+    attach_P = Geom.attach_P;
+    attach_B = Geom.attach_B;
+    vec_dir = Geom.vec_dir;
+%------------------------------------
     x = x_min : x_step : x_max;
     y = y_min : y_step : y_max;
     z = z_min : z_step : z_max;
+
     a1=length(x);
     a2=length(y);
     a3=length(z);
     w_s=cell(a1,a2,a3);
     Occugrid=zeros(a1,a2,a3,"logical");
     point =zeros(3,1);
+
     for i=1:a1
         for j=1:a2
             for k=1:a3
@@ -33,7 +41,6 @@ function [point] = pointConstOri(Init,Constr,attach_P,attach_B,vec_dir)
         end
     end
    
-
     figure;
     for k=1:a3              % Z
         for i=1:a1          % X

@@ -1,8 +1,8 @@
-function [point,cnt_st] = polarConstOri(Init,Constr,attach_P,attach_B,vec_dir)
+function [point,cnt_st] = polarConstOri(Init,Geom)
 
     orient = Init.orient;
     % trans = Init.trans
-
+    
     h_min = Init.h(1);
     h_max = Init.h(2);
     rho_max = Init.rho(2);
@@ -12,11 +12,15 @@ function [point,cnt_st] = polarConstOri(Init,Constr,attach_P,attach_B,vec_dir)
     
     epsilon = Init.epsilon;
     
-    length_max = Constr.length(2);
-    length_min = Constr.length(1);
-    angle_P = Constr.angle_P(2);
-    angle_B = Constr.angle_B(2);
+    length_max = Geom.length(2);
+    length_min = Geom.length(1);
+    angle_P = Geom.angle_P(2);
+    angle_B = Geom.angle_B(2);
+    attach_P = Geom.attach_P;
+    attach_B = Geom.attach_B;
+    vec_dir = Geom.vec_dir;
     
+%-----------------------------------------------    
     h = h_min : h_step : h_max;
     alpha = alpha_step : alpha_step : 2*pi;
     a3=length(h);

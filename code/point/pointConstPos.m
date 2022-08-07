@@ -1,4 +1,4 @@
-function [point] = pointConstPos(Init,Constr,attach_P,attach_B,vec_dir)
+function [point] = pointConstPos(Init,Geom)
     
     theta_min = Init.theta(1);
     theta_max = Init.theta(2);
@@ -10,14 +10,18 @@ function [point] = pointConstPos(Init,Constr,attach_P,attach_B,vec_dir)
     phi_step = Init.phi_step;
     theta_step = Init.theta_step;
     psi_step = Init.psi_step;
+
     % orient = Init.orient;
     trans = Init.trans;
 
-    length_max = Constr.length(2);
-    length_min = Constr.length(1);
-    angle_P = Constr.angle_P(2);
-    angle_B = Constr.angle_B(2);
-
+    length_max = Geom.length(2);
+    length_min = Geom.length(1);
+    angle_P = Geom.angle_P(2);
+    angle_B = Geom.angle_B(2);
+    attach_P = Geom.attach_P;
+    attach_B = Geom.attach_B;
+    vec_dir = Geom.vec_dir;
+%------------------------------------------
     phi = phi_min : phi_step : phi_max;
     theta = theta_min : theta_step : theta_max;
     psi = psi_min : psi_step : psi_max;
@@ -37,8 +41,6 @@ function [point] = pointConstPos(Init,Constr,attach_P,attach_B,vec_dir)
         end
     end
    
-
-
     for k=1:a3              % psi
         for i=1:a1          % theta
             for j=1:a2      % phi

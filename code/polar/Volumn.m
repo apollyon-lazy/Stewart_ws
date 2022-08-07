@@ -1,26 +1,9 @@
-function [V] = drawPolar(Init,point,cnt_st)
-    h_max = Init.h(2);
-    h_min = Init.h(1);
+function [V] = Volumn(Init,point,cnt_st)
+    
     h_step = Init.h_step;
     alpha_step = Init.alpha_step;
-
-    z = h_min:h_step:h_max;
-    theta = alpha_step:alpha_step:2*pi;
     
-    n = 1;
-    temp=zeros(3,sum(sum(sum(point~=0))));
-    for k = 1:size(point,3)
-        for j = 1:size(point,2)
-            for i = 1:size(point,1)
-                if point(i,j,k)>0
-                    temp(:,n) = [point(i,j,k)*cos(theta(j)),point(i,j,k)*sin(theta(j)),z(k)]';
-                    n = n + 1;
-                end
-            end
-        end
-    end
-    scatter3(temp(1,:),temp(2,:),temp(3,:),'.'); 
-    
+%-------------------------------------------
     V = 0;
     for k=1:size(point,3)
         if cnt_st(k) 

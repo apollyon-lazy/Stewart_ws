@@ -10,6 +10,6 @@ Geometry.length = [80,160];         %[mm] length of the arm
 Geometry.angle_P = [0,pi/3];        %[rad] Max angle of the platform joint          
 Geometry.angle_B = [0,pi/6];        %[rad] Max angle of the base joint
 
-[attach_P,attach_B,vec_dir] = Stewartparam(Geometry);
+Geometry = Stewartparams(Geometry);
 drawPlatform(Geometry,attach_P,attach_B,vec_dir);
 % savefig([folder,'.\fig\draw_ws.fig']);

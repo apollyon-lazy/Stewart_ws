@@ -27,9 +27,9 @@ Init.trans = [0,0,60]';             %[rad] constant-orientation
 
 %% Main process 
 % Calculate geometry parameter
-[attach_P,attach_B,vec_dir] = Stewartparam(Geometry);
+Geometry = Stewartparams(Geometry);
 % Calculate Constant-position workspace
-point = pointConstPos(Init,Geometry,attach_P,attach_B,vec_dir);
+point = pointConstPos(Init,Geometry);
 
 toc;
 T = toc;

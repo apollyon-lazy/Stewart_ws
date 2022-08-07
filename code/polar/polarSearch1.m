@@ -28,16 +28,19 @@ Init.epsilon = Init.rho(2)/1000;    %[mm] Accuracy threshold
 
 %% Main process 
 % Calculate geometry parameter
-[attach_P,attach_B,vec_dir] = Stewartparam(Geometry);
+Geometry = Stewartparams(Geometry);
 % Calculate Constant-position workspace
-[point,cnt_st] = polarConstOri(Init,Geometry,attach_P,attach_B,vec_dir);
+[point,cnt_st] = polarConstOri(Init,Geometry);
 
 toc;
 T = toc;
 fprintf('Calculation finished!\n');
 
 %% Post-processing 
-[V] = drawPolar(Init,point,cnt_st);
+temp = calculate(Init,point);
+% temp = rad2deg(temp);
+scatter3(temp(1,:),temp(2,:),temp(3,:),'.'); 
+[V] = Volumn(Init,point,cnt_st);
 grid on;
 view(30,30);
 xlabel('x');ylabel('y');zlabel('z');

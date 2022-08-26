@@ -1,4 +1,4 @@
-# Git-Matlab 命令    
+# Git-Matlab     
 !git status （代码提交更新）    
 !git add （增加文件）    
 !git commit -m “此处填写评论”（提交修改）    
@@ -8,7 +8,7 @@
 # Folder explaination 
 - base 框架代码文件夹
 - code 代码文件夹
-- fig 配图文件夹
+- images 配图文件夹
 - intlab 区间算法文件夹
 # Version Plan 
 - 版本v_1.0
@@ -19,6 +19,5 @@
             - [ ] 任意两自由度切面，区间分析可不可行
     - [ ] 求内接椭圆缩放比例
     - [ ] 计算权重因子函数
-    - [ ] 编写帮助文档，基本统一为驼峰命名法
 
 

@@ -1,4 +1,4 @@
-# Reference code   
+# Related links   
 1、https://github.com/tanqingge/stewart_ws.git    
 接口：输入几何参数 输出三维工作空间可视化         
 思路：并行循环离散位置和姿态组合 判断是否满足臂长和转角约束    
@@ -15,9 +15,8 @@
 特点：逆运动学求解 可能有剩余工作空间求解    
 7、https://github.com/tdehaeze/stewart-simscape.git    
 特点：有独立建站收集文献 仓库内代码不完整     
-8、intlab 'Introduction to Interval analysis' 配套代码             
-9、main INTLAB_V6 MATLAB2021Rb 下的定姿态工作空间求解代码
-# Reference books
+
+# Reference 
 [1] Moore R E, Kearfott R B, Cloud M J. Introduction to interval analysis[M]. Society for Industrial and 
 Applied Mathematics, 2009.
 

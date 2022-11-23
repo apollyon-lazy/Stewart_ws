@@ -20,7 +20,9 @@
 # Reference books
 [1] Moore R E, Kearfott R B, Cloud M J. Introduction to interval analysis[M]. Society for Industrial and 
 Applied Mathematics, 2009.
+
 [2] Andrew A M. Applied interval analysis: with examples in parameter and state estimation, robust control 
 and robotics[J]. Kybernetes, 2002.
+
 [3] Masory, O. and J. Wang, Workspace evaluation of Stewart platforms. [J]. Advanced robotics, 1994. 9(4): 
 p. 443-461.

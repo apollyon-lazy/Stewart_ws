@@ -1,4 +1,4 @@
 # List of untracked files to ignore
-/base
-/intlab
-/images
+base/
+intlab/
+images/

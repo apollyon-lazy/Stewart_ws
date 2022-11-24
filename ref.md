@@ -25,3 +25,5 @@ and robotics[J]. Kybernetes, 2002.
 
 [3] Masory, O. and J. Wang, Workspace evaluation of Stewart platforms. [J]. Advanced robotics, 1994. 9(4): 
 p. 443-461.
+
+[4] Ye, P., You, J., Xi, F. et al. An Interval Discretization Method for Workspace Determination of Parallel Mechanisms. Arab J Sci Eng 47, 8805–8827 (2022). 
